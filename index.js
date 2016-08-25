@@ -10,9 +10,13 @@ var Pool = require('generic-pool').Pool;
 var poolNumber = 0;
 
 /**
- * Expose `RedisPool()`.
+ * Expose redis-pool
  */
-module.exports = RedisPool;
+exports.RedisPool = RedisPool;
+exports.createClient = function (options) {
+  options = options || {};
+  return new RedisPool(options);
+};
 
 /**
  * Initialize redis connection pool with `options`:

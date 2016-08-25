@@ -1,7 +1,7 @@
-var RedisPool = require('./');
+var redis = require('./');
 
 // create pool
-var db = new RedisPool(); // Connects with redis on 127.0.0.1:6379
+var db = redis.createClient(); // Connects with redis on 127.0.0.1:6379
 
 // write a value to redis and read it back
 db.set('foo', 'bar').then( (res) => {

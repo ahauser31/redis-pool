@@ -1,11 +1,12 @@
 var expect     = require('chai').expect;
-var RedisPool = require('..');
-var redis = require('redis');
+var redis = require('..');
+var redisVanilla = require('redis');
 
 describe('Redis connection pooling', function() {
 
   before(function(done) {
-    var db = redis.createClient();
+    // Using the vanilla redis client here to prevent bugs of this script to interfere with the db prep
+    var db = redisVanilla.createClient();
     db.keys('pool:*', function(err, keys) {
       if (err) return done(err);
       if (!keys.length) return done();
@@ -15,7 +16,7 @@ describe('Redis connection pooling', function() {
   });
 
   describe('single connection, using promises', function() {
-    var db = new RedisPool();
+    var db = redis.createClient();
 
     // beforeEach(function(done) {
     //   done();
@@ -78,7 +79,7 @@ describe('Redis connection pooling', function() {
   });
 
   describe('single connection, using callbacks', function() {
-    var db = new RedisPool();
+    var db = redis.createClient();
 
     // beforeEach(function(done) {
     //   done();
