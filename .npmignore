@@ -1,0 +1,6 @@
+test/
+example.js
+*.log
+*.rdb
+*.out
+*.yml

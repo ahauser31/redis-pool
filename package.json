@@ -1,0 +1,45 @@
+{
+  "name": "redis-pool",
+  "description": "Redis connection pool with native promise support",
+  "version": "1.0.0",
+  "keywords": [
+    "redis",
+    "pool",
+    "promise",
+    "transaction",
+    "database",
+    "nodejs"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "main": "./index.js",
+  "dependencies": {
+    "debug": "2.2.0",
+    "generic-pool": "2.4.2",
+    "redis": "2.6.2",
+    "redis-commands": "1.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.3.1",
+    "eslint-config-standard": "^6.0.0",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "mocha": "^3.0.2"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --reporter spec",
+    "debug-test": "NODE_ENV=test DEBUG=redis-pool mocha --reporter spec",
+    "lint": "eslint index.js"
+  },
+  "engines": {
+    "node": ">= 4.4.6"
+  },
+  "author": "Andreas Hauser <andreas_hauser@gmx.de>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ahauser31/redis-pool.git"
+  }
+}
